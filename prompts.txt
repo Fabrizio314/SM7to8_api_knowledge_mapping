@@ -1,0 +1,90 @@
+"""You are an expert software engineer with deep expertise in both C++ and Java.
+
+C++ method:
+{cpp_code}
+
+Candidate Java methods (with their intents, signatures, and class names):
+{java_methods_info}
+
+Lets think step by step
+Your task:
+Step 1. Analyze the behavior and intent of the given C++ method.
+   - Consider both its explicit operations and implicit language features (e.g., operator overloading, templates, destructors).
+Step 2. Determine which Java methods (one or multiple) can collectively replicate this behavior.
+   - If a single method exists, mark it as a one-to-one mapping.
+   - If multiple methods are needed (composition), identify them and their sequence.
+Step 3. If the mapping involves language feature translation (e.g., operator+ → add(Complex), copy constructor → clone()), mark it as one-to-many.
+Step 4. Explicitly reason about partial matches: 
+   - If one method covers only part of the behavior, check whether other retrieved methods can complete it.
+   - Combine them only if their types and intents are compatible.
+Step 5. If no combination can fully replicate the behavior, say "No exact match."
+
+Output structured JSON:
+{{
+  "match": true/false,
+  "java_methods_used": ["Fully-qualified method names with signatures, e.g., Complex.add(Complex other)"],
+  "api_flow": ["Ordered sequence with relationships, e.g., Complex.add(Complex) - AND -> Complex.normalize()"]
+  "Mapping": "one-to-one" or "one-to-many",
+  "Intent": "Brief description of how the selected methods replicate the C++ method's behavior"
+}}
+
+Guidelines:
+- Prefer functional equivalence over method name similarity.
+- ALWAYS include class + signature to avoid overload confusion (e.g., Math.add(int,int) vs Complex.add(Complex)).
+- If the C++ method uses a user-defined type (non-primitive), DO NOT map to primitive-only Java methods unless there is an explicit, type-safe adapter in the candidate set.
+- For operator overloading on user-defined types (e.g., Complex::operator+), DO NOT select generic primitive helpers. Prefer domain methods like Complex.add(Complex) or static Complex add(Complex,Complex).
+- Treat any C++ language feature translation (operator overloads, copy/move, destructors) as "Mapping": "one-to-many" (language-feature translation), even if a single Java method is used to emulate it.
+- If multiple methods are required, describe the flow (e.g., sum(a,b) → divide(result,2)).
+- Do not assume missing methods; only use what is in {java_methods_info}.
+"""
+
+
+
+
+
+
+
+
+
+
+You are an expert software engineer with deep expertise in both C++ and Java.
+
+C++ method:
+{cpp_code}
+
+Candidate Java methods (with their intents, signatures, and class names):
+{java_methods_info}
+
+Your task:
+1. Analyze the behavior and intent of the given C++ method.
+   - Consider both its explicit operations and implicit language features (e.g., operator overloading, templates, destructors).
+2. Determine which Java methods (one or multiple) can collectively replicate this behavior.
+   - If a single method exists, mark it as a one-to-one mapping.
+   - If multiple methods are needed (composition), identify them and their sequence.
+3. If the mapping involves language feature translation (e.g., operator+ → add(Complex), copy constructor → clone()), mark it as one-to-many.
+4. Explicitly reason about partial matches: 
+   - If one method covers only part of the behavior, check whether other retrieved methods can complete it.
+   - Combine them only if their types and intents are compatible.
+5. If no combination can fully replicate the behavior, say "No exact match."
+
+Output structured JSON:
+{
+  "match": true/false,
+  "java_methods_used": ["list of method names with signatures if available"],
+  "api_flow": ["ordered sequence of methods with AND/OR relationships"],
+  "Mapping": "one-to-one" or "one-to-many",
+  "Intent": "Brief description of how the selected methods replicate the C++ method's behavior"
+}
+
+Guidelines:
+- Prefer functional equivalence over method name similarity.
+- Always include the method signature (if available) to avoid confusion with overloads.
+- If multiple methods are required, describe the flow (e.g., sum(a,b) → divide(result,2)).
+- Do not assume missing methods; only use what is in {java_methods_info}.
+
+
+
+-----------------------------------------------------------------------------------------------
+
+chain of thought
+

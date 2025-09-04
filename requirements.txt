@@ -10,3 +10,4 @@ requests
 langserve
 uvicorn
 pandas
+langchain-milvus
